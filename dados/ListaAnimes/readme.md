@@ -1,4 +1,4 @@
-# Projeto Engenharia de Dados
+# Projeto Minhas Lista de Animes
 
 E aí, galera! Bora mergulhar no mundo dos dados? Este projeto é seu trampolim pra ter aquele contato massa com a transformação e análise de dados, algo super requisitado no mercado de TI.
 
