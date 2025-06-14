@@ -16,7 +16,7 @@ Para este projeto, focaremos inicialmente no **Campeonato Brasileiro de 2025**.
 
 ## API e Responsabilidades
 
-Vamos trabalhar com a **API Futebol**. Ela está em português, o que facilita o entendimento da documentação, além de ter excelentes opções para uma API gratuita.
+Vamos trabalhar com a **[API Futebol](https://www.api-futebol.com.br/documentacao)**. Ela está em português, o que facilita o entendimento da documentação, além de ter excelentes opções para uma API gratuita.
 
 Nossa organização de dados visa garantir a facilidade de entendimento e consumo da API. Funciona assim:
 
