@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Lista de Animes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Lista de Animes</h1>
+
+    <form action="/search" method="get">
+        <input type="text" name="query" placeholder="Buscar animes..." value="{{ search_query if search_query }}">
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if animes %}
+        <ul>
+            {% for anime in animes %}
+                <li>
+                    <h2>{{ anime.title }}</h2>
+                    <p><strong>Gênero:</strong> {{ anime.genre }}</p>
+                    <p><strong>Episódios:</strong> {{ anime.episodes }}</p>
+                    <p>{{ anime.synopsis[:200] }}...</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum anime encontrado.</p>
+    {% endif %}
+</body>
+</html>
