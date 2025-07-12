@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Anime: {{ anime.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Detalhes do Anime</h1>
+
+    {% if anime %}
+    <div class="anime-detail-container">
+        {% if anime.image_url %}
+            <img src="{{ anime.image_url }}" alt="Capa de {{ anime.title }}">
+        {% else %}
+            <img src="{{ url_for('static', filename='img/placeholder.png') }}" alt="Imagem não disponível">
+        {% endif %}
+
+        <h2>{{ anime.title }}</h2>
+        <p><strong>ID (MAL):</strong> {{ anime.mal_id }}</p>
+        <p><strong>Gênero(s):</strong> {{ anime.genre }}</p>
+        <p><strong>Episódios:</strong> {{ anime.episodes }}</p>
+        <p><strong>Score:</strong> {{ '%.2f' | format(anime.score) }}</p>
+        <p><strong>Tipo:</strong> {{ anime.type }}</p>
+        <p><strong>Membros:</strong> {{ '{:,.0f}'.format(anime.members) }}</p> {# Formata o número de membros #}
+        <p><strong>Ranking:</strong> #{{ anime.ranked }}</p>
+        <p><strong>Popularidade:</strong> #{{ anime.popularity }}</p>
+        
+        <div class="synopsis">
+            <p><strong>Sinopse:</strong></p>
+            <p>{{ anime.synopsis }}</p>
+        </div>
+
+        <a href="{{ url_for('index') }}" class="detail-back-link">Voltar para a Busca</a>
+    </div>
+    {% else %}
+    <p class="no-results">Anime não encontrado.</p>
+    <a href="{{ url_for('index') }}" class="detail-back-link">Voltar para a Busca</a>
+    {% endif %}
+
+</body>
+</html>

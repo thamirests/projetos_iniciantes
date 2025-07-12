@@ -1,0 +1,16 @@
+{% extends 'template.html' %}
+
+    {% block title %} Galeria de Animes e Mangas {% endblock %}
+
+{% block content %}
+    <h1> Galeria de Animes e Mangas</h1>
+
+    <div class="search-container">
+       
+            <a type="text">Escolha o que deseja buscar</a>
+            <a href="{{ url_for('anime_search') }}"><button type="submit">Anime</button></a>
+            <a href="{{ url_for('manga_search') }}"><button type="submit">Manga</button></a>
+        
+    </div>
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'template.html' %}
+
+    {% block title %}Buscas por Mangas{% endblock %}
+{% block content %}
+    <div class="header_container">
+        <h1>Buscas por mangas</h1>
+        <a href="{{ url_for('index') }}" aligh="left" class="detail-back-link">Home</a>
+    </div>
+    <div class="search-container"> 
+        <form action="/manga" method="get">
+            <input type="text" name="query" placeholder="Buscar por título ou gênero..." value="{{ search_query if search_query }}">
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
+
+    {% if not mangas and (search_query or current_page) %}
+        <p class="no-results">Nenhum manga encontrado para sua busca ou nesta página.</p>
+    {% elif not mangas and not search_query %}
+        <p class="no-results">Nenhum manga carregado. Verifique se o arquivo CSV está correto.</p>
+    {% endif %}
+
+    {% if mangas %}
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Gênero</th>
+                    <th>Volumes</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for manga in mangas %}
+                <tr>
+                    <td>{{ manga.title }}</td>
+                    <td>{{ manga.genre }}</td>
+                    <td>{{ manga.volumes }}</td>
+                    <td>{{ '%.2f' | format(manga.score) }}</td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="pagination">
+        {% if current_page > 1 %}
+            <a href="{{ url_for('manga_search', page=current_page - 1, query=search_query) }}" class="page-link">Anterior</a>
+        {% else %}
+            <span class="page-link disabled">Anterior</span>
+        {% endif %}
+
+        {% for p in range(1, total_pages + 1) %}
+            <a href="{{ url_for('manga_search', page=p, query=search_query) }}"
+               class="page-link {% if p == current_page %}active{% endif %}">{{ p }}</a>
+        {% endfor %}
+
+        {% if current_page < total_pages %}
+            <a href="{{ url_for('manga_search', page=current_page + 1, query=search_query) }}" class="page-link">Próximo</a>
+        {% else %}
+            <span class="page-link disabled">Próximo</span>
+        {% endif %}
+    </div>
+    {% endif %}
+
+{% endblock %}

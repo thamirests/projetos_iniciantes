@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="header_container">
+        <h1>Buscas por Animes</h1>
+        <a href="{{ url_for('index') }}" aligh="left" class="detail-back-link">Home</a>
+    </div>
+    <div class="search-container"> 
+        <form action="/anime" method="get">
+            <input type="text" name="query" placeholder="Buscar por título ou gênero..." value="{{ search_query if search_query }}">
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
+
+    {% if not animes and (search_query or current_page) %}
+        <p class="no-results">Nenhum anime encontrado para sua busca ou nesta página.</p>
+    {% elif not animes and not search_query %}
+        <p class="no-results">Nenhum anime carregado. Verifique se o arquivo CSV está correto.</p>
+    {% endif %}
+
+    {% if animes %}
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Gênero</th>
+                    <th>Episódios</th>
+                    <th>Score</th>
+                    <th>Origem</th>
+                    <th>Ações</th> </tr>
+            </thead>
+            <tbody>
+                {% for anime in animes %}
+                <tr>
+                    <td>{{ anime.title }}</td>
+                    <td>{{ anime.genre }}</td>
+                    <td>{{ anime.episodes }}</td>
+                    <td>{{ '%.2f' | format(anime.score) }}</td>
+                    <td>{{ anime.source }}</td>
+                    <td>
+                        <a href="{{ url_for('show_anime_detail', mal_id=anime.mal_id) }}">Ver Detalhes</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+
+</body>
+</html>

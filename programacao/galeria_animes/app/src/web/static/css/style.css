@@ -1,0 +1,315 @@
+/* Estilos Gerais do Corpo da Página */
+body {
+    background-color: #1a1a1a; /* Fundo preto suave */
+    color: #e0e0e0; /* Texto cinza claro para bom contraste */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    min-height: 100vh; /* Garante que o body ocupe toda a altura da tela */
+    box-sizing: border-box; /* Inclui padding e border no cálculo da largura/altura */
+}
+
+/* Estilo do Título Principal */
+h1 {
+    color: #bb86fc; /* Um toque de roxo para o título */
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra suave para o texto */
+}
+
+.header_container {
+    width: 100%;
+    max-width: 1200px; /* Limita a largura máxima do container */
+    margin: 0 auto; /* Centraliza o container */
+    padding: 15px 25px; /* Alinha verticalmente os itens do header */
+}
+
+/* --- Estilos do Formulário de Busca --- */
+.search-container {
+    background-color: #2c2c2c; /* Fundo mais escuro para o container da busca */
+    padding: 15px 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    width: 90%;
+    max-width: 700px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.search-container form {
+    display: flex;
+    gap: 10px; /* Espaçamento entre input e botão */
+    justify-content: center;
+    align-items: center;
+}
+
+.search-container input[type="text"] {
+    flex-grow: 1; /* Faz o input ocupar o espaço restante */
+    padding: 12px 15px;
+    border: 1px solid #4a4a4a; /* Borda sutil */
+    border-radius: 6px;
+    background-color: #3a3a3a; /* Fundo do input */
+    color: #e0e0e0;
+    font-size: 1em;
+    outline: none; /* Remove o contorno padrão ao focar */
+    transition: border-color 0.3s ease;
+}
+
+.search-container input[type="text"]::placeholder {
+    color: #a0a0a0; /* Cor do placeholder */
+}
+
+.search-container input[type="text"]:focus {
+    border-color: #bb86fc; /* Borda roxa ao focar */
+}
+
+.search-container button[type="submit"] {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    background-color: #bb86fc; /* Cor roxa para o botão */
+    color: #1a1a1a; /* Texto escuro no botão */
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.search-container button[type="submit"]:hover {
+    background-color: #9c6edc; /* Tom mais escuro de roxo ao passar o mouse */
+    transform: translateY(-2px); /* Leve efeito de elevação */
+}
+
+/* Estilos para a mensagem de "Nenhum resultado" */
+.no-results {
+    color: #ff6b6b; /* Vermelho claro para aviso */
+    font-size: 1.1em;
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #2c2c2c;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 700px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+
+/* --- Estilos da Tabela --- */
+.table-container {
+    width: 90%; /* Largura máxima da tabela */
+    max-width: 1200px;
+    overflow-x: auto; /* Permite scroll horizontal em telas pequenas */
+    margin-bottom: 30px;
+    background-color: #2c2c2c;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Remove espaços entre as bordas das células */
+    margin: 0;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #3a3a3a; /* Linha divisória suave */
+}
+
+thead th {
+    background-color: #3a3a3a; /* Fundo mais escuro para o cabeçalho */
+    color: #bb86fc; /* Texto roxo no cabeçalho */
+    font-weight: bold;
+    text-transform: uppercase; /* Texto em maiúsculas */
+    font-size: 0.9em;
+    position: sticky; /* Fixa o cabeçalho ao rolar */
+    top: 0;
+    z-index: 1; /* Garante que o cabeçalho fique acima do conteúdo ao rolar */
+}
+
+tbody tr:nth-child(even) {
+    background-color: #222222; /* Fundo levemente diferente para linhas pares (listras) */
+}
+
+tbody tr:hover {
+    background-color: #383838; /* Fundo mais claro ao passar o mouse */
+    transition: background-color 0.3s ease;
+}
+
+td a {
+    color: #8aff8a; /* Verde claro para links de ação */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+td a:hover {
+    color: #55f555; /* Verde mais vibrante ao passar o mouse */
+    text-decoration: underline;
+}
+
+/* --- Estilos da Paginação --- */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Espaçamento entre os links de página */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Permite que os itens quebrem linha em telas menores */
+}
+
+.page-link {
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #e0e0e0;
+    background-color: #2c2c2c; /* Fundo escuro para os links */
+    border: 1px solid #4a4a4a;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    font-weight: bold;
+    min-width: 30px; /* Largura mínima para botões de página */
+    text-align: center;
+}
+
+.page-link:hover:not(.active):not(.disabled) {
+    background-color: #4a4a4a; /* Fundo mais claro ao passar o mouse */
+    border-color: #bb86fc; /* Borda roxa ao passar o mouse */
+}
+
+.page-link.active {
+    background-color: #bb86fc; /* Fundo roxo para a página atual */
+    color: #1a1a1a; /* Texto escuro para a página atual */
+    border-color: #bb86fc;
+    cursor: default; /* Não muda o cursor */
+}
+
+.page-link.disabled {
+    background-color: #1e1e1e; /* Fundo mais escuro para links desabilitados */
+    color: #707070; /* Texto cinza para links desabilitados */
+    border-color: #3a3a3a;
+    cursor: not-allowed; /* Indica que não é clicável */
+}
+
+/* --- Estilos para a Página de Detalhes do Anime (futuro anime_detail.html) --- */
+/* Você pode adicionar mais estilos aqui quando criar o anime_detail.html */
+.anime-detail-container {
+    background-color: #2c2c2c;
+    border-radius: 8px;
+    padding: 30px;
+    margin-top: 30px;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.anime-detail-container img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.anime-detail-container h2 {
+    color: #bb86fc;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.anime-detail-container p {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.anime-detail-container p strong {
+    color: #e0e0e0;
+}
+
+.anime-detail-container .synopsis {
+    background-color: #3a3a3a;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 15px;
+    text-align: justify;
+    font-style: italic;
+    color: #c0c0c0;
+}
+
+.detail-back-link {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #8aff8a;
+    color: #1a1a1a;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.detail-back-link:hover {
+    background-color: #55f555;
+    transform: translateY(-2px);
+}
+
+/* --- Responsividade Básica --- */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    th, td {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    .search-container form {
+        flex-direction: column;
+    }
+
+    .search-container button[type="submit"] {
+        width: 100%; /* Botão ocupa a largura total em telas menores */
+    }
+
+    .pagination {
+        gap: 5px;
+    }
+
+    .page-link {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+
+    .anime-detail-container {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .search-container, .table-container, .no-results {
+        width: 100%;
+        border-radius: 0; /* Remove border-radius para ocupar a largura total */
+    }
+
+    .anime-detail-container {
+        padding: 15px;
+    }
+}

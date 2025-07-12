@@ -13,7 +13,6 @@ Ele foi concebido como um projeto para iniciantes, focando em conceitos fundamen
 - **Consumo de Dados:** Leitura e processamento de informações a partir de arquivos `.csv`.
 - **Testes Unitários (Opcional/Plus):** Garantia da qualidade e correção da lógica de negócio.
 
----
 
 ## ✨ Funcionalidades
 
@@ -22,7 +21,6 @@ Ele foi concebido como um projeto para iniciantes, focando em conceitos fundamen
 -   **Busca/Filtro de Animes:** (Opcional, pode ser adicionado depois) Funcionalidade para pesquisar animes por título, gênero, etc.
 -   **Interface Web Amigável:** Página HTML com CSS básico para uma visualização agradável.
 
----
 
 ## 🚀 Tecnologias Utilizadas
 
@@ -33,35 +31,42 @@ Ele foi concebido como um projeto para iniciantes, focando em conceitos fundamen
 -   **CSV:** Formato do arquivo de dados dos animes.
 -   **`unittest` (ou `pytest`):** Para testes unitários (se implementados).
 
----
+## 📊 Fonte dos Dados
+
+Os dados de animes utilizados neste projeto são provenientes do dataset "**Top Anime Dataset 2024**" disponível no Kaggle.
+
+* **Link do Dataset:** [https://www.kaggle.com/datasets/bhavyadhingra00020/top-anime-dataset-2024?select=Top_Anime_data.csv](https://www.kaggle.com/datasets/bhavyadhingra00020/top-anime-dataset-2024?select=Top_Anime_data.csv)
+
+Agradecemos ao criador do dataset, Bhavya Dhingra, por disponibilizar esta valiosa coleção de dados.
+
 
 ## ⚙️ Estrutura do Projeto
 
 A estrutura do projeto segue uma organização modular para facilitar a manutenção e o entendimento:
 
-galeria_de_animes/
-├── app/
-│   ├── main.py                # Ponto de entrada da aplicação Flask
-│   ├── src/
-│   │   ├── models/            # Contém as classes de modelo (ex: anime.py)
-│   │   │   └── anime.py       # Definição da classe Anime
-│   │   └── services/          # Contém a lógica de negócio e manipulação de dados
-│   │       └── anime_service.py # Serviço para carregar e gerenciar animes
-│   └── web/
-│       ├── templates/         # Arquivos HTML (Jinja2 templates)
-│       │   └── index.html     # Template principal da galeria
-│       └── static/            # Arquivos estáticos (CSS, JavaScript, imagens)
-│           ├── css/
-│           │   └── style.css  # Folha de estilo da aplicação
-│           └── js/
-│               └── script.js  # Scripts JavaScript (se houver)
-├── data/
-│   └── anime_data.csv         # Arquivo CSV com os dados dos animes
-└── tests/
-├── unit/                  # Testes unitários para classes e serviços
-│   └── test_anime_service.py
-└── integration/           # Testes de integração (ex: para a aplicação web)
-└── test_web_app.py
+galeria_de_animes/<br>
+├── app/<br>
+│   ├── main.py                # Ponto de entrada da aplicação Flask<br>
+│   ├── src/<br>
+│   │   ├── models/            # Contém as classes de modelo (ex: anime.py)<br>
+│   │   │   └── anime.py       # Definição da classe Anime<br>
+│   │   └── services/          # Contém a lógica de negócio e manipulação de dados<br>
+│   │       └── anime_service.py # Serviço para carregar e gerenciar animes<br>
+│   └── web/<br>
+│       ├── templates/         # Arquivos HTML (Jinja2 templates)<br>
+│       │   └── index.html     # Template principal da galeria<br>
+│       └── static/            # Arquivos estáticos (CSS, JavaScript, imagens)<br>
+│           ├── css/<br>
+│           │   └── style.css  # Folha de estilo da aplicação<br>
+│           └── js/<br>
+│               └── script.js  # Scripts JavaScript (se houver)<br>
+├── data/<br>
+│   └── anime_data.csv         # Arquivo CSV com os dados dos animes<br>
+└── tests/<br>
+├── unit/                  # Testes unitários para classes e serviços<br>
+│   └── test_anime_service.py<br>
+└── integration/           # Testes de integração (ex: para a aplicação web)<br>
+└── test_web_app.py<br>
 
 ## 🏁 Como Executar o Projeto
 
@@ -135,7 +140,7 @@ Este projeto está licenciado sob a licença MIT. Veja o arquivo LICENSE para ma
 
 # 👨‍💻 Autor
 [Thamires Trindade](https://github.com/thamirests/)
-Discord: thamyts
+<br>Discord: thamyts
 
 **Observações para você:**
 
