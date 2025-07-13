@@ -58,7 +58,7 @@ galeria_de_animes/
 │           └── js/
 │               └── script.js  # Scripts JavaScript (se houver)
 ├── data/
-│   └── anime_data.csv         # Arquivo CSV com os dados dos animes
+│   └── sample_anime.csv         # Arquivo CSV com os dados dos animes
 └── tests/
 ├── unit/                  # Testes unitários para classes e serviços
 │   └── test_anime_service.py
@@ -128,17 +128,18 @@ pip install Flask
 ```
 
 ### 4.  Preparar os Dados
-Coloque o seu arquivo .csv de animes na pasta data/. Certifique-se de que ele esteja nomeado como anime_data.csv ou ajuste o nome no código do AnimeService.
+Existe uma amostra de dados de animes dentro da pasta `data/`<br>
+Caso queira usar sua propria fonte de dados coloque o seu arquivo .csv de animes na pasta `data/`. Certifique-se de que ele esteja nomeado como sample_anime.csv ou ajuste o nome no código do main.py.
 
-Exemplo de estrutura do anime_data.csv (colunas):
-title,genre,episodes,synopsis,image_url (se for usar imagens)
+Exemplo de estrutura do sample_anime.csv (colunas):
+id,title,titleJa,titleEn,image,mean,rank,num_list_users,num_scoring_users,num_episodes,start_date,end_date,media_type,status,rating,average_episode_duration,genres,studios
 
 ### 5. Executar a Aplicação
 
 Navegue até o diretório galeria_de_animes/app e execute o main.py:
 
 ```
-cd app
+# certifique-se que esteja dentro da pasta app
 python main.py
 ```
 Após executar, o Flask irá iniciar um servidor de desenvolvimento. Você verá uma mensagem no terminal indicando o endereço local, geralmente http://127.0.0.1:5000/. Abra este endereço em seu navegador.

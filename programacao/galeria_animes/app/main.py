@@ -14,7 +14,7 @@ anime_service = AnimeService(ANIME_CSV_PATH)
 @app.route('/')
 def index():
     anime = anime_service.get_all_animes()
-    return render_template('anime_index.html', animes=anime)
+    return render_template('index.html', animes=anime)
 
 @app.route('/search', methods=['GET'])
 def search_animes():
