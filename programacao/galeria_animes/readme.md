@@ -1,4 +1,4 @@
-# [Em Construção] Projeto Galeria de Animes
+# Projeto Galeria de Animes
 
 Esse projeto tem por objetivo expandir o conhecimento e mostrar caminhos para pensar e se desenvolver como programador, por meio de problemas lúdicos que simulam recursos usados em sistemas reais. 
 
@@ -33,40 +33,64 @@ Ele foi concebido como um projeto para iniciantes, focando em conceitos fundamen
 
 ## 📊 Fonte dos Dados
 
-Os dados de animes utilizados neste projeto são provenientes do dataset "**Top Anime Dataset 2024**" disponível no Kaggle.
-
-* **Link do Dataset:** [https://www.kaggle.com/datasets/bhavyadhingra00020/top-anime-dataset-2024?select=Top_Anime_data.csv](https://www.kaggle.com/datasets/bhavyadhingra00020/top-anime-dataset-2024?select=Top_Anime_data.csv)
-
-Agradecemos ao criador do dataset, Bhavya Dhingra, por disponibilizar esta valiosa coleção de dados.
+Os dados de animes utilizados para o desenvolvimento desse projeto são provenientes do dataset "**anime-dataset**" disponível no [GitHub](https://github.com/meesvandongen/anime-dataset).<br>
+Fique a vontade para procurar datasets mais completos para utilizar nesse projeto.
 
 
 ## ⚙️ Estrutura do Projeto
 
 A estrutura do projeto segue uma organização modular para facilitar a manutenção e o entendimento:
+<pre>
+galeria_de_animes/
+├── app/
+│   ├── main.py                # Ponto de entrada da aplicação Flask
+│   ├── src/
+│   │   ├── models/            # Contém as classes de modelo (ex: anime.py)
+│   │   │   └── anime.py       # Definição da classe Anime
+│   │   └── services/          # Contém a lógica de negócio e manipulação de dados
+│   │       └── anime_service.py # Serviço para carregar e gerenciar animes
+│   └── web/
+│       ├── templates/         # Arquivos HTML (Jinja2 templates)
+│       │   └── index.html     # Template principal da galeria
+│       └── static/            # Arquivos estáticos (CSS, JavaScript, imagens)
+│           ├── css/
+│           │   └── style.css  # Folha de estilo da aplicação
+│           └── js/
+│               └── script.js  # Scripts JavaScript (se houver)
+├── data/
+│   └── anime_data.csv         # Arquivo CSV com os dados dos animes
+└── tests/
+├── unit/                  # Testes unitários para classes e serviços
+│   └── test_anime_service.py
+└── integration/           # Testes de integração (ex: para a aplicação web)
+└── test_web_app.py
+</pre>
 
-galeria_de_animes/<br>
-├── app/<br>
-│   ├── main.py                # Ponto de entrada da aplicação Flask<br>
-│   ├── src/<br>
-│   │   ├── models/            # Contém as classes de modelo (ex: anime.py)<br>
-│   │   │   └── anime.py       # Definição da classe Anime<br>
-│   │   └── services/          # Contém a lógica de negócio e manipulação de dados<br>
-│   │       └── anime_service.py # Serviço para carregar e gerenciar animes<br>
-│   └── web/<br>
-│       ├── templates/         # Arquivos HTML (Jinja2 templates)<br>
-│       │   └── index.html     # Template principal da galeria<br>
-│       └── static/            # Arquivos estáticos (CSS, JavaScript, imagens)<br>
-│           ├── css/<br>
-│           │   └── style.css  # Folha de estilo da aplicação<br>
-│           └── js/<br>
-│               └── script.js  # Scripts JavaScript (se houver)<br>
-├── data/<br>
-│   └── anime_data.csv         # Arquivo CSV com os dados dos animes<br>
-└── tests/<br>
-├── unit/                  # Testes unitários para classes e serviços<br>
-│   └── test_anime_service.py<br>
-└── integration/           # Testes de integração (ex: para a aplicação web)<br>
-└── test_web_app.py<br>
+Vamos traduzir essa estrutura para o contexto do nosso projeto e, se você estiver familiarizado, para uma arquitetura tradicional:
+
+* **`main.py` (Nosso "Controlador" - *Controller*):**
+    * Este é o coração da sua aplicação Flask. Ele **recebe as requisições** dos usuários (quando eles acessam uma URL), **conversa com os serviços** (para obter os dados necessários) e, finalmente, **renderiza os templates HTML** (as "Views") para mostrar a resposta ao usuário. É o maestro que coordena tudo.
+
+* **`models/` (Nossos "Objetos" - *Models*):**
+    * Aqui definimos a **estrutura** dos dados com que trabalhamos. No `anime.py`, por exemplo, dizemos "um Anime tem um título, uma sinopse, um ID, uma URL de imagem, etc.". É a **representação dos nossos dados** no código.
+
+* **`services/` (A Lógica de Dados - *Service Layer*):**
+    * Os arquivos dentro de `services/` são responsáveis por toda a **lógica de manipulação dos dados**. O `anime_service.py` sabe como **ler as informações do seu arquivo CSV**, como **criar objetos `Anime`** a partir dessas informações, como **paginar** a lista de animes e como **buscar** animes específicos. Eles servem os dados para o `main.py`.
+
+* **`web/templates/` (Nossa Interface - *Views*):**
+    * São os arquivos HTML (`.html`) que o Flask usa para **montar a página que o usuário verá**. Eles recebem os dados do `main.py` (que por sua vez pegou do `services/`) e os exibem de forma bonita.
+
+## 🧑‍💻 Seu Desafio!
+
+As estruturas básicas estão prontas para que você possa focar no mais importante: **entender a lógica e conectar as peças!**
+
+* **`anime.py`:** Seu primeiro passo é **ajustar as características** (atributos e propriedades) da classe `Anime` para que ela corresponda exatamente às **colunas do novo dataset** que você está usando (`AnimeList.csv`), incluindo a `image_url` e o `anime_id`.
+* **`anime_service.py`:** Aqui, seu trabalho é **ajustar a função de carregamento** (`_load_animes_from_csv`) para ler as informações do `AnimeList.csv` e preencher corretamente os objetos `Anime`. Além disso, **implemente as funções de paginação e busca** para Animes, usando o `anime_id` do dataset.
+* **`main.py`:** Você precisará **ajustar as chamadas** para o `anime_service.py` (usando os novos nomes de atributos e o `anime_id`) e **garantir que os dados corretos sejam passados** para os templates (`anime_search.html` e `anime_detail.html`).
+* **Templates (`anime_search.html` e `anime_detail.html`):** Você vai precisar **adaptar estes templates** para exibir as novas colunas do seu dataset (ex: `title_english`, `episodes`, `score`, `synopsis` e, claro, a **`image_url`**!).
+
+Não se preocupe com as rotas principais (`/`, `/animes`, `/anime/<id>`), nem com a estrutura base dos templates e o `style.css` para a tabela e paginação. Isso já está preparado!
+
 
 ## 🏁 Como Executar o Projeto
 
@@ -132,6 +156,15 @@ python -m unittest discover tests/unit
 # pytest tests/unit
 ```
 
+## 💡[BÔNUS] O Projeto `Manga` (Para os mais Curiosos!)
+
+Como um desafio extra, você pode replicar toda essa estrutura para um novo tipo de objeto: o **`Manga`**! Isso envolveria:
+
+* Criar `manga.py` em `models/`.
+* Criar `manga_service.py` em `services/`.
+* Adicionar novas rotas no `main.py` (ex: `/mangas`, `/manga/<id>`).
+* Criar novos templates (`manga_search.html`, `manga_detail.html`).
+
 # 🤝 Contribuições
 Contribuições são bem-vindas! Se você tiver sugestões ou quiser melhorar este projeto, sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
@@ -148,4 +181,4 @@ Este projeto está licenciado sob a licença MIT. Veja o arquivo LICENSE para ma
 * **Imagens:** Se o seu CSV tiver URLs de imagem, você pode adicionar uma coluna `image_url` e ajustar o `Anime` model e o `index.html` para exibí-las.
 * **Testes:** A seção de testes é "plus", mas é muito valiosa para um iniciante!
 
-Este `README.md` oferece um guia completo para você e para qualquer pessoa que queira entender e executar seu projeto. O que você acha? Quer que eu te ajude a começar com o código da classe `Anime` agora?
+Este `README.md` oferece um guia completo para você e para qualquer pessoa que queira entender e executar seu projeto.
