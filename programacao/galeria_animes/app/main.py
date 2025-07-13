@@ -8,7 +8,7 @@ app = Flask(__name__, template_folder='src/web/templates', static_folder='src/we
 
 # Instancia o serviço de animes, ajustando o caminho do CSV
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-ANIME_CSV_PATH = os.path.join(BASE_DIR, '..', 'data', 'test_anime_data.csv')
+ANIME_CSV_PATH = os.path.join(BASE_DIR, '..', 'data', 'sample_anime.csv')
 anime_service = AnimeService(ANIME_CSV_PATH)
 
 @app.route('/')
