@@ -175,11 +175,3 @@ Este projeto está licenciado sob a licença MIT. Veja o arquivo LICENSE para ma
 # 👨‍💻 Autor
 [Thamires Trindade](https://github.com/thamirests/)
 <br>Discord: thamyts
-
-**Observações para você:**
-
-* **Preenchimento:** As seções `✨ Funcionalidades`, `⚙️ Estrutura do Projeto` e `🏁 Como Executar o Projeto` (especialmente o exemplo de CSV) precisarão de pequenos ajustes conforme você avança na implementação real.
-* **Imagens:** Se o seu CSV tiver URLs de imagem, você pode adicionar uma coluna `image_url` e ajustar o `Anime` model e o `index.html` para exibí-las.
-* **Testes:** A seção de testes é "plus", mas é muito valiosa para um iniciante!
-
-Este `README.md` oferece um guia completo para você e para qualquer pessoa que queira entender e executar seu projeto.
